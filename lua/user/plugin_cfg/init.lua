@@ -27,3 +27,9 @@ require("user.plugin_cfg.bufferline")
 require("user.plugin_cfg.nvimtree")
 require("user.plugin_cfg.vgit")
 require("user.plugin_cfg.startup_dashboard")
+require("user.plugin_cfg.treesitter")
+
+-- plugin enable/disable
+lvim.builtin.alpha.active = false
+lvim.builtin.terminal.active = true
+lvim.builtin.project.active = false
