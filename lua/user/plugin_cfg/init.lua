@@ -20,10 +20,17 @@ lvim.plugins = {
       require "startup".setup()
     end
   },
+  {
+    'noib3/nvim-cokeline',
+    requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
+    config = function()
+      require('cokeline').setup()
+    end
+  }
 }
 
 require("user.plugin_cfg.telescope")
-require("user.plugin_cfg.bufferline")
+require("user.plugin_cfg.cokeline_cfg")
 require("user.plugin_cfg.nvimtree")
 require("user.plugin_cfg.vgit")
 require("user.plugin_cfg.startup_dashboard")
@@ -33,3 +40,7 @@ require("user.plugin_cfg.treesitter")
 lvim.builtin.alpha.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.project.active = false
+
+-- disable bufferline and use cokeline
+-- since (https://github.com/akinsho/bufferline.nvim/issues/655)
+lvim.builtin.bufferline.active = false
