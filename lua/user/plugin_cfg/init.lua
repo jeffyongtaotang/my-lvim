@@ -19,7 +19,7 @@ lvim.plugins = {
     config = function()
       require "startup".setup()
     end
-  }
+  },
 }
 
 require("user.plugin_cfg.telescope")
