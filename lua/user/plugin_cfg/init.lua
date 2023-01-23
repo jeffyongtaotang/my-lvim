@@ -26,13 +26,24 @@ lvim.plugins = {
     config = function()
       require('cokeline').setup()
     end
+  },
+  {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require "octo".setup()
+    end
   }
 }
 
 require("user.plugin_cfg.telescope")
 require("user.plugin_cfg.cokeline_cfg")
 require("user.plugin_cfg.nvimtree")
-require("user.plugin_cfg.vgit")
+require("user.plugin_cfg.vgit").init()
 require("user.plugin_cfg.startup_dashboard")
 require("user.plugin_cfg.treesitter")
 
