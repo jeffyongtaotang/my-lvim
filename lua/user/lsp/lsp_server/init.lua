@@ -9,3 +9,11 @@ require("lspconfig")["yamlls"].setup({
     }
   }
 })
+
+-- Use python syntax highline for Tiltfile
+require("nvim-treesitter.parsers").filetype_to_parsername.tiltfile = "python"
+
+require("lspconfig")["tilt_ls"].setup({
+  cmd = { "tilt", "lsp", "start" },
+  filetypes = { "tiltfile" }
+})
