@@ -37,7 +37,8 @@ lvim.plugins = {
     config = function()
       require "octo".setup()
     end
-  }
+  },
+  { 'toppair/peek.nvim', run = 'deno task --quiet build:fast' }
 }
 
 require("user.plugin_cfg.telescope")
@@ -46,6 +47,7 @@ require("user.plugin_cfg.nvimtree")
 require("user.plugin_cfg.vgit").init()
 require("user.plugin_cfg.startup_dashboard")
 require("user.plugin_cfg.treesitter")
+require("user.plugin_cfg.peek_cfg").init()
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
