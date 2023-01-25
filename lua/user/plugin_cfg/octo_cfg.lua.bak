@@ -1,0 +1,19 @@
+local M = {}
+
+function M.get_which_key()
+  return {
+    name = "+Octo",
+    p = {
+      name = "Pull Request",
+      l = { "<cmd>Octo pr list<CR>", "List Current Project Opened PRs" },
+      b = { "<cmd>Octo pr browser<CR>", "Open current PR in the browser" },
+    },
+    r = {
+      name = "Review",
+      s = { "<cmd>Octo review start<CR>", "Start a new review" },
+      q = { "<cmd>Octo review close<CR>", "Close review window" },
+    },
+  }
+end
+
+return M
