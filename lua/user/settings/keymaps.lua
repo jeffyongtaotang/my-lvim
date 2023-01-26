@@ -1,5 +1,6 @@
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+lvim.keys.term_mode["<C-n>"] = "<C-\\><C-n>"
 
 local vgit_which_keys = require("user.plugin_cfg.vgit").get_which_key()
 
