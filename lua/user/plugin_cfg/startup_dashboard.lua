@@ -40,6 +40,7 @@ local settings = {
       { " Find [W]ord", "Telescope live_grep", "W" },
       { " [R]ecent Files", "Telescope oldfiles", "R" },
       { " [N]ew File", "lua require'startup'.new_file()", "N" },
+      { "⚙ [T]erminal", ":term", "T" },
     },
     highlight = "String",
     default_color = "",
