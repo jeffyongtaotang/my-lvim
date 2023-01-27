@@ -14,8 +14,8 @@ end
 function M.get_which_key()
   return {
     name = "+VGit",
-    g = { function() require('vgit').project_diff_preview() end, "Project Diff Preview" },
-    f = { function() require('vgit').buffer_diff_preview() end, "Buffer Diff Preview" },
+    g = { function() require('vgit').project_diff_preview() end, "Project Diff" },
+    f = { function() require('vgit').buffer_history_preview() end, "File History Diff" },
   }
 end
 

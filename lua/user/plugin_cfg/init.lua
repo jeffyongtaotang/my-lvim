@@ -33,17 +33,18 @@ lvim.plugins = {
       { 'ldelossa/litee.nvim' }
     }
   },
-  -- {
-  --   'pwntester/octo.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim',
-  --     'kyazdani42/nvim-web-devicons',
-  --   },
-  --   config = function()
-  --     require "octo".setup()
-  --   end
-  -- }
+  {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require "octo".setup()
+    end
+  },
+  { 'towolf/vim-helm' },
 }
 
 require("user.plugin_cfg.telescope")
@@ -53,6 +54,7 @@ require("user.plugin_cfg.vgit").init()
 require("user.plugin_cfg.startup_dashboard")
 require("user.plugin_cfg.treesitter")
 require("user.plugin_cfg.gh")
+require("user.plugin_cfg.octo_cfg")
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
