@@ -1,4 +1,11 @@
+require("user.lsp.lsp_server.helm_ls")
+
 require("lspconfig")["yamlls"].setup({
+  on_attach = function(_, bufnr)
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+      vim.diagnostic.disable()
+    end
+  end,
   settings = {
     yaml = {
       schemas = {
@@ -16,4 +23,9 @@ require("nvim-treesitter.parsers").filetype_to_parsername.tiltfile = "python"
 require("lspconfig")["tilt_ls"].setup({
   cmd = { "tilt", "lsp", "start" },
   filetypes = { "tiltfile" }
+})
+
+require("lspconfig")["helm_ls"].setup({
+  filetypes = { "helm" },
+  cmd = { "helm_ls", "serve" },
 })
