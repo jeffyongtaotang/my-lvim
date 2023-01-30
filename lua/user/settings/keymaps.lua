@@ -1,5 +1,9 @@
--- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
+-- In case to use vim binding to manipulate term histories,
+-- use (ctrl+n) to switch to Normal mode in Terminal.
+-- With "zsh-vim-mode", use "esc" switch mode and use vim binding
+-- for only the cmd line content.
 lvim.keys.term_mode["<C-n>"] = "<C-\\><C-n>"
 
 local vgit_which_keys = require("user.plugin_cfg.vgit").get_which_key()

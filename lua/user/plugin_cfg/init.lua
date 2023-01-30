@@ -21,6 +21,7 @@ lvim.plugins = {
     end
   },
   {
+    -- Bufferline not working correctly with Telescope-project, use "Cokeline" instead.
     'noib3/nvim-cokeline',
     requires = 'kyazdani42/nvim-web-devicons', -- If you want devicons
     config = function()

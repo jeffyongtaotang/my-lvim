@@ -2,6 +2,7 @@ require("user.lsp.lsp_server.helm_ls")
 
 require("lspconfig")["yamlls"].setup({
   on_attach = function(_, bufnr)
+    -- In case to let "helm_ls" works correctly, disable yamlls for helm file type
     if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
       vim.diagnostic.disable()
     end
