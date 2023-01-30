@@ -45,6 +45,16 @@ lvim.plugins = {
     end
   },
   { 'towolf/vim-helm' },
+  {
+    -- Might require some manual step, if ":MarkdownPreview" not working.
+    -- ref: https://github.com/iamcco/markdown-preview.nvim/issues/424
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
 }
 
 require("user.plugin_cfg.telescope")

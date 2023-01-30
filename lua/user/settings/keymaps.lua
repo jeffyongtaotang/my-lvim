@@ -12,3 +12,5 @@ lvim.builtin.which_key.mappings["g"] = {
   p = octo_which_keys.p.l,
   l = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
 }
+
+lvim.keys.normal_mode["<C-m>"] = "<cmd>MarkdownPreview<cr>"
