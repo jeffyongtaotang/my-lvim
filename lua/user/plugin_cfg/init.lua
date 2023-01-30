@@ -56,6 +56,13 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
+  {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  },
 }
 
 require("user.plugin_cfg.telescope")
@@ -66,6 +73,7 @@ require("user.plugin_cfg.startup_dashboard")
 require("user.plugin_cfg.treesitter")
 require("user.plugin_cfg.gh")
 require("user.plugin_cfg.octo_cfg")
+require("user.plugin_cfg.trouble_cfg")
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
