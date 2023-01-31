@@ -2,6 +2,7 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local ok, null_ls = pcall(require, "null-ls")
 if ok then
+  ---@diagnostic disable-next-line: redundant-parameter
   null_ls.setup({
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then

@@ -1,9 +1,11 @@
 require("user.lsp.null_ls.format_on_save")
 
+-- requires "eslint_d" (https://www.npmjs.com/package/eslint_d)
+-- since it's faster on format-on-save
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
-    command = "eslint",
+    command = "eslint_d",
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
   },
 }
@@ -11,7 +13,7 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   {
-    command = "eslint",
+    command = "eslint_d",
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
   },
 }
@@ -19,7 +21,7 @@ linters.setup {
 local code_actions = require "lvim.lsp.null-ls.code_actions"
 code_actions.setup {
   {
-    command = "eslint",
+    command = "eslint_d",
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" }
   },
 }
