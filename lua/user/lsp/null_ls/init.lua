@@ -1,3 +1,5 @@
+require("user.lsp.null_ls.format_on_save")
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
