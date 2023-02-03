@@ -1,9 +1,12 @@
 lvim.plugins = {
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require('onedark').load()
+  --   end
+  -- },
   {
-    "navarasu/onedark.nvim",
-    config = function()
-      require('onedark').load()
-    end
+    "lewpoly/sherbet.nvim"
   },
   { "tanvirtin/vgit.nvim" },
   {
