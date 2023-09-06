@@ -59,5 +59,6 @@ lvim.builtin.which_key.mappings["d"] = {
   }
 }
 
-
-lvim.keys.normal_mode["<C-m>"] = "<cmd>MarkdownPreview<cr>"
+lvim.builtin.which_key.mappings["m"] = {
+  "<cmd>MarkdownPreview<cr>", "Preview a Markdown File"
+}
