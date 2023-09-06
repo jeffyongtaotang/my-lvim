@@ -66,6 +66,11 @@ lvim.plugins = {
       require("trouble").setup({})
     end
   },
+  -- Debugger
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    requires = { "mfussenegger/nvim-dap" }
+  }
 }
 
 require("user.plugin_cfg.telescope")
@@ -77,6 +82,7 @@ require("user.plugin_cfg.treesitter")
 require("user.plugin_cfg.gh")
 require("user.plugin_cfg.octo_cfg")
 require("user.plugin_cfg.trouble_cfg")
+require("user.plugin_cfg.dap_vscode_js")
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
