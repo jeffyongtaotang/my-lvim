@@ -1,3 +1,17 @@
+-- TODO:
+-- Below been set to the lvim core
+-- since we have no way to override it correctly
+--
+lvim.builtin.dap.ui.layouts = {
+  {
+    elements = {
+      { id = "console", size = 1 },
+    },
+    size = 0.2,
+    position = "right",
+  },
+}
+
 require("dap-vscode-js").setup({
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
   debugger_path = "/Users/jeff.tong@konghq.com/Coding/vscode-js-debug", -- Path to vscode-js-debug installation.
