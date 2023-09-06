@@ -11,11 +11,15 @@ require("dap-vscode-js").setup({
 local function getConfigEnv(type)
 
   if type == '2' then
-    return "jest.config.integration.js"
+    return "test:integration"
   elseif type == '3' then
-    return "jest.config.component.js"
+    return "test:integration:debug"
+  elseif type == '4' then
+    return "test:component"
+  elseif type == '5' then
+    return "test:component:debug"
   else
-    return "jest.config.js"
+    return "test:unit"
   end
 end
 
@@ -26,14 +30,14 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       request = "launch",
       name = "Debug Jest Tests",
       -- trace = true, -- include debugger info
-      runtimeExecutable = "node",
+      runtimeExecutable = "yarn",
       runtimeArgs = function()
-        local type = vim.fn.input('Input Test type ([1] unit, [2] integration or [3] component): ')
+        local type = vim.fn.input('Input Test type ([1] unit, [2] integration, [3] integration:debug, [4] component, [5] component:debug): ')
 
         return {
-          "./node_modules/jest/bin/jest.js",
-          "-c" .. "${workspaceFolder}" .. "/" .. getConfigEnv(type),
-          "--runInBand",
+          "--cwd",
+          "${workspaceFolder}",
+          getConfigEnv(type)
         }
       end,
       rootPath = "${workspaceFolder}",
