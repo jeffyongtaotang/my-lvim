@@ -1,16 +1,18 @@
 -- TODO:
--- Below been set to the lvim core
--- since we have no way to override it correctly
+-- Below been set to the lvim core,
+-- since we have no way to override it correctly,
+-- unless we disable the builtin DAP and reinstall
+-- it in our own way.
 --
-lvim.builtin.dap.ui.layouts = {
-  {
-    elements = {
-      { id = "console", size = 1 },
-    },
-    size = 0.2,
-    position = "right",
-  },
-}
+-- lvim.builtin.dap.ui.layouts = {
+--   {
+--     elements = {
+--       { id = "console", size = 1 },
+--     },
+--     size = 0.2,
+--     position = "right",
+--   },
+-- }
 
 require("dap-vscode-js").setup({
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
@@ -22,19 +24,57 @@ require("dap-vscode-js").setup({
   log_console_level = vim.log.levels.DEBUG -- Logging level for output to console. Set to false to disable console output.
 })
 
-local function getConfigEnv(type)
+-- read all file content as string
+local function read_file_as_string(file)
+  local f = assert(io.open(file, "rb"))
+  local content = f:read("*all")
+  f:close()
+  return content
+end
 
-  if type == '2' then
-    return "test:integration"
-  elseif type == '3' then
-    return "test:integration:debug"
-  elseif type == '4' then
-    return "test:component"
-  elseif type == '5' then
-    return "test:component:debug"
-  else
-    return "test:unit"
+-- retrieve /test:.*/ scripts from package.json
+local function get_all_test_env_from_package_json()
+  local path = vim.fn.getcwd() .. "/package.json"
+  local file_str = read_file_as_string(path)
+
+  if file_str == nil then
+    error(path .. 'not found')
   end
+
+  local envs = {}
+
+  local decoded_table = vim.json.decode(file_str)
+  local scripts = decoded_table.scripts or {}
+
+  for k in pairs(scripts) do
+    if string.match(k, "^test:[^.]+") then
+      table.insert(envs, k)
+    end
+  end
+
+  return envs
+end
+
+-- prompt user a selection of test env
+local function select_test_env(envs)
+  local type
+
+  table.sort(envs)
+
+  vim.ui.select(
+    envs,
+    {
+      prompt = 'Select Test Cmds:',
+      format_item = function(item)
+        return item
+      end,
+    },
+    function(choice)
+      type = choice
+    end
+  )
+
+  return type
 end
 
 for _, language in ipairs({ "typescript", "javascript" }) do
@@ -46,19 +86,19 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       -- trace = true, -- include debugger info
       runtimeExecutable = "yarn",
       runtimeArgs = function()
-        local type = vim.fn.input('Input Test type ([1] unit, [2] integration, [3] integration:debug, [4] component, [5] component:debug): ')
+        local test_cmds = get_all_test_env_from_package_json()
 
         return {
           "--cwd",
           "${workspaceFolder}",
-          getConfigEnv(type)
+          select_test_env(test_cmds)
         }
       end,
       rootPath = "${workspaceFolder}",
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
       program = "${file}",
-      internalConsoleOptions = "openOnSessionStart",
+      internalConsoleOptions = "neverOpen",
     }
   }
 end
