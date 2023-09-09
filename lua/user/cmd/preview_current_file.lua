@@ -11,7 +11,7 @@ local function is_oas_file(filePath)
 end
 
 function M.run()
-  local currentFileName = io.get_current_buf_name()
+  local currentFileName = io.get_current_file()
 
   if io.is_file_ext('md') ~= nil then
     -- this required 'iamcco/markdown-preview.nvim'
