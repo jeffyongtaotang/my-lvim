@@ -1,10 +1,4 @@
 lvim.plugins = {
-  -- {
-  --   "navarasu/onedark.nvim",
-  --   config = function()
-  --     require('onedark').load()
-  --   end
-  -- },
   {
     "lewpoly/sherbet.nvim"
   },
@@ -60,6 +54,10 @@ lvim.plugins = {
     end,
   },
   {
+    "vinnymeller/swagger-preview.nvim",
+    run = "npm install -g swagger-ui-watcher",
+  },
+  {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
     config = function()
@@ -70,6 +68,15 @@ lvim.plugins = {
   {
     "mxsdev/nvim-dap-vscode-js",
     requires = { "mfussenegger/nvim-dap" }
+  },
+  -- Dependency for cmd folder
+  {
+    "cuducos/yaml.nvim",
+    ft = { "yaml" }, -- optional
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim" -- optional
+    },
   }
 }
 
@@ -83,6 +90,7 @@ require("user.plugin_cfg.gh")
 require("user.plugin_cfg.octo_cfg")
 require("user.plugin_cfg.trouble_cfg")
 require("user.plugin_cfg.dap_vscode_js")
+require("user.plugin_cfg.swagger_preview")
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
