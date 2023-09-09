@@ -5,7 +5,9 @@ function M.get_scripts_from_package_json(filter)
   local file_str = require("user.cmd.io").read_file_as_string(path)
 
   if file_str == nil then
-    error(path .. 'not found')
+    print(path .. 'not found')
+
+    return
   end
 
   local scripts = {}
@@ -25,6 +27,10 @@ end
 
 function M.select_and_run_script()
   local scripts = M.get_scripts_from_package_json()
+
+  if scripts == nil then
+    return
+  end
 
   table.sort(scripts)
 

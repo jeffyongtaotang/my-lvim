@@ -17,11 +17,10 @@ lvim.builtin.which_key.mappings["g"] = {
   l = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
 }
 
--- remap the debugger menu
 lvim.builtin.which_key.mappings["d"] = {
   name = "Dev Tool",
-  w = {
-    name = "debugger windows",
+  D = {
+    name = "[D]ebugger UI",
     b = {
       "<cmd>lua require'dapui'.float_element('breakpoints', { width = 50, height = 20, enter = true })<cr>",
       "[b]reakpoint UI"
@@ -48,21 +47,21 @@ lvim.builtin.which_key.mappings["d"] = {
     name = "debugger",
     s = { "<cmd>lua require'dap'.session()<cr>", "get [s]ession" },
     d = { "<cmd>lua require'dap'.disconnect()<cr>", "[d]isconnect" },
-    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Add a Breakpoin[t]" },
-    b = { "<cmd>lua require'dap'.step_back()<cr>", "Step [b]ack" },
+    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "add a breakpoin[t]" },
+    b = { "<cmd>lua require'dap'.step_back()<cr>", "step [b]ack" },
     c = { "<cmd>lua require'dap'.continue()<cr>", "[c]ontinue" },
-    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To [C]ursor" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step [i]nto" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step [o]ver" },
-    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step O[u]t" },
+    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "run to [C]ursor" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "step [i]nto" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "step [o]ver" },
+    u = { "<cmd>lua require'dap'.step_out()<cr>", "step O[u]t" },
     p = { "<cmd>lua require'dap'.pause()<cr>", "[p]ause" },
     q = { "<cmd>lua require'dap'.close()<cr>", "[q]uit" },
   },
   t = { "<cmd>lua require'dap'.continue()<cr>", "[t]est with debugger" },
   p = {
-    "<cmd>lua require'user.cmd.preview_current_file'.run()<cr>", "[p]review a Markdown File"
+    "<cmd>lua require'user.cmd.preview_current_file'.run()<cr>", "file [p]review"
   },
   s = {
-    "<cmd>lua require'user.cmd.run_package_json_script'.select_and_run_script()<cr>", "Run a [s]cript"
+    "<cmd>lua require'user.cmd.run_package_json_script'.select_and_run_script()<cr>", "run project [s]cript"
   }
 }
