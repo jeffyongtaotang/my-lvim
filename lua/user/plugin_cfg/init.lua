@@ -64,6 +64,9 @@ lvim.plugins = {
       require("trouble").setup({})
     end
   },
+  {
+    "simrat39/rust-tools.nvim"
+  },
   -- Debugger
   {
     "mxsdev/nvim-dap-vscode-js",
@@ -72,7 +75,6 @@ lvim.plugins = {
   -- Dependency for cmd folder
   {
     "cuducos/yaml.nvim",
-    ft = { "yaml" }, -- optional
     requires = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope.nvim" -- optional
@@ -91,6 +93,7 @@ require("user.plugin_cfg.octo_cfg")
 require("user.plugin_cfg.trouble_cfg")
 require("user.plugin_cfg.dap_vscode_js")
 require("user.plugin_cfg.swagger_preview")
+require("user.plugin_cfg.rust_tools")
 
 -- plugin enable/disable
 lvim.builtin.alpha.active = false
