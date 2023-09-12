@@ -18,7 +18,7 @@ function M.run()
     vim.cmd('MarkdownPreview')
   end
 
-  if io.is_file_ext('yaml') ~= nil then
+  if io.is_file_ext('yaml') ~= nil or io.is_file_ext('yml') ~= nil then
     -- this required 'vinnymeller/swagger-preview.nvim'
     if is_oas_file(currentFileName) ~= nil then
       vim.cmd('SwaggerPreviewToggle')
