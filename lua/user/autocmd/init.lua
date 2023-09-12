@@ -4,6 +4,6 @@ lvim.autocommands = {
     {
       pattern = { "Tiltfile" },
       command = "setf tiltfile",
-    }
+    },
   },
 }
