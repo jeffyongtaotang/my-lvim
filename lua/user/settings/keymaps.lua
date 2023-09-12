@@ -8,6 +8,7 @@ lvim.keys.term_mode["<C-n>"] = "<C-\\><C-n>"
 
 local vgit_which_keys = require("user.plugin_cfg.vgit").get_which_key()
 local octo_which_keys = require("user.plugin_cfg.octo_cfg").get_which_key()
+local rust_tools_which_keys = require("user.plugin_cfg.rust_tools").get_which_key()
 
 lvim.builtin.which_key.mappings["g"] = {
   name = "+Git",
@@ -64,4 +65,9 @@ lvim.builtin.which_key.mappings["d"] = {
   s = {
     "<cmd>lua require'user.cmd.run_package_json_script'.select_and_run_script()<cr>", "run project [s]cript"
   }
+}
+
+lvim.builtin.which_key.mappings["r"] = rust_tools_which_keys
+lvim.builtin.which_key.mappings["sy"] = {
+  "<cmd>lua require'yaml_nvim'.telescope()<cr>", "Search current [y]aml file"
 }
